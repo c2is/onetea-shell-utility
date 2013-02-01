@@ -14,7 +14,8 @@ $ dpkg -i onetea.deb
 Just copy debian/usr/bin/onetea into your mysysGit environnement in the directory bin.
 
 ## Installation for MacOsX
+Just run macosx/oneteaInstaller.pkg
 
 ```bash
-$ onetea.pkg
+$ oneteaInstaller.pkg
 ```
