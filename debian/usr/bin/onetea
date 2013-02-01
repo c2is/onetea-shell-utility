@@ -1,0 +1,53 @@
+#!/bin/bash
+VERT="\\033[1;32m"
+ROUGE="\\033[1;31m"
+path=`pwd`
+giturl="git://github.com/c2is/c2is-onetea.git"
+function install {
+	read -p "Do you wish to install $giturl here : $path? Warning, all files will be overriden. [y,n]" yn
+    case $yn in
+        [Yy]* )
+            mkdir ./tmpOneTea;
+            git clone $giturl tmpOneTea;
+            rm -rf ./tmpOneTea/.git
+            cp -rf ./tmpOneTea/* ./
+            rm -rf ./tmpOneTea/
+            echo -e $VERT"onetea installed !"
+            exit;;
+        [Nn]* ) echo -e $VERT "aborting...";exit;;
+        * ) echo -e $ROUGE"Please answer yes or no.";;
+    esac
+}
+function help {
+    echo "usage :";
+    echo "install";
+    echo "help";
+}
+
+while getopts clhf: opt
+do
+    case "$opt" in
+      h)  help; ;;
+      \?)		# unknown flag
+      	  echo >&2 \
+
+	  exit 1;;
+    esac
+done
+
+if test -z "$*" 
+then
+     help;
+else
+     case $1 in
+        install)
+            install;;
+        help)
+            help;;
+        *) ;;
+    esac
+fi
+
+
+
+

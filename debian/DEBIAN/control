@@ -1,0 +1,9 @@
+Package: onetea 
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash, git
+Maintainer: c2is <tekos@c2is.fr>
+Description: Tool to install C2is js/css env.
+
