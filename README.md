@@ -15,8 +15,5 @@ Just copy debian/usr/bin/onetea into your mysysGit environnement in the director
 ex `C:\Program Files (x86)\PortableGit-1.7.4\bin`
 
 ## Installation for MacOsX
-Just run macosx/oneteaInstaller.pkg
+Just double clic on the installer :  macosx/oneteaInstaller.pkg
 
-```bash
-$ oneteaInstaller.pkg
-```
