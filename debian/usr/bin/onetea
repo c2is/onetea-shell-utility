@@ -4,30 +4,39 @@ ROUGE="\\033[1;31m"
 path=`pwd`
 giturl="git://github.com/c2is/c2is-onetea.git"
 function install {
+    if [[ "$1" = "b" ]] ; then
+	    if [[ "$2" = "install" ]] ; then
+            echo "branch name missing";
+            exit 1;
+        else
+            branch="-b $2 ";
+	    fi
+	fi
 	read -p "Do you wish to install $giturl here : $path? Warning, all files will be overriden. [y,n]" yn
     case $yn in
         [Yy]* )
             mkdir ./tmpOneTea;
-            git clone $giturl tmpOneTea;
+            git clone $branch$giturl tmpOneTea;
             rm -rf ./tmpOneTea/.git
             cp -rf ./tmpOneTea/* ./
             rm -rf ./tmpOneTea/
-            echo -e $VERT"onetea installed !"
+            echo -e $VERT"onetea "$branch"installed !"
             exit;;
         [Nn]* ) echo -e $VERT "aborting...";exit;;
         * ) echo -e $ROUGE"Please answer yes or no.";;
     esac
 }
 function help {
-    echo "usage :";
-    echo "install";
-    echo "help";
+    echo "usage : onetea [-b branchName] install";
+    echo "        onetea help";
+    echo "        onetea -h";
 }
 
-while getopts clhf: opt
+while getopts clhfb: opt
 do
     case "$opt" in
-      h)  help; ;;
+      b)  install "b" $2; ;;
+      h)  help; exit 1; ;;
       \?)		# unknown flag
       	  echo >&2 \
 

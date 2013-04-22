@@ -17,3 +17,13 @@ ex `C:\Program Files (x86)\PortableGit-1.7.4\bin`
 ## Installation for MacOsX
 Just double clic on the installer :  macosx/oneteaInstaller.pkg
 
+## Usage
+```bash
+$ onetea [-b branchName] install
+```
+```bash
+$ onetea help
+```
+```bash
+$ onetea -h
+```
